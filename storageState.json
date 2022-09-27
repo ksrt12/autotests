@@ -1,0 +1,15 @@
+{
+  "cookies": [
+    {
+      "name": "PHPSESSID",
+      "value": "b73e0e91ef4294fd114b24864af33297",
+      "domain": "optic-journal-test.itmo.dev",
+      "path": "/",
+      "expires": 1664236590.914578,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}
