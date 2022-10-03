@@ -2,10 +2,10 @@
   "cookies": [
     {
       "name": "PHPSESSID",
-      "value": "35d3a27d1c3dc959bc5eebcaff091a01",
+      "value": "c3837b0065b620c3f7e20d01c0d0c30c",
       "domain": "127.0.0.1",
       "path": "/",
-      "expires": 1664841043.645516,
+      "expires": 1664842413.989997,
       "httpOnly": true,
       "secure": false,
       "sameSite": "Lax"

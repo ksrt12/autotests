@@ -7,7 +7,7 @@ async function globalSetup(config: FullConfig) {
     await page.locator('input[name="_username"]').fill('admin');
     await page.locator('input[name="_password"]').fill('admin');
     await page.locator('text=Войти').click();
-    await page.context().storageState({ path: 'storageState.json' });
+    await page.context().storageState({ path: './projects/ojs/storageState.json' });
     await browser.close();
 }
 

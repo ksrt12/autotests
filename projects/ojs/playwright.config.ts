@@ -11,7 +11,7 @@ import { devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-    testDir: './tests',
+    testDir: '.',
     /* Maximum time one test can run for. */
     timeout: 30 * 1000,
     expect: {
@@ -31,7 +31,7 @@ const config: PlaywrightTestConfig = {
         actionTimeout: 0,
         baseURL: "http://127.0.0.1:8296/admin/",
         trace: 'on-first-retry',
-        storageState: 'storageState.json'
+        storageState: './projects/ojs/storageState.json'
     },
 
     /* Configure projects for major browsers */
