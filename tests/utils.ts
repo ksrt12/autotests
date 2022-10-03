@@ -1,41 +1,31 @@
-export function genN(n: number) {
-    let tmp = Array(n).fill(0).map(() => Math.floor(Math.random() * 10));
-    if (tmp[0] === 0) {
-        tmp[0] = 1;
-    }
-    return tmp.join("");
-}
-
-export function genStringEn(n: number) {
+function genAny(dictionary: string, n: number) {
     let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    const charactersLength = characters.length;
+    const len = dictionary.length;
     for (let i = 0; i < n; i++) {
-        result += characters.charAt(Math.floor(Math.random() *
-            charactersLength));
+        result += dictionary.charAt(Math.floor(Math.random() * len));
     }
     return result;
-}
+};
 
-export function genStringRu(n: number) {
-    let result = '';
-    const characters = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя';
-    const charactersLength = characters.length;
-    for (let i = 0; i < n; i++) {
-        result += characters.charAt(Math.floor(Math.random() *
-            charactersLength));
-    }
-    return result;
-}
+export const gen = {
+    N: (n: number) => genAny('123456789', n),
+    RU: (n: number) => genAny('АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя', n),
+    EN: (n: number) => genAny('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', n)
+};
 
 export const falsyStrings = [
     { name: "Пробелы", val: "   " },
     { name: "Пусто", val: "" },
 ];
 
+export const bigFalsyStrings = [
+    { name: "RU256", val: gen.RU(256) },
+    { name: "EN256", val: gen.EN(256) },
+];
+
 export const falsyValues = [
-    { name: "256", val: genN(256) },
-    { name: "Отрицательный", val: -genN(2) },
+    { name: "256", val: gen.N(256) },
+    { name: "Отрицательный", val: -gen.N(2) },
     { name: "0", val: 0 },
     ...falsyStrings
 ];
