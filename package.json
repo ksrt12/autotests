@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "ojs:full": "npx playwright test -c projects/ojs",
+    "ojs": "npx playwright test -c projects/ojs --project chromium"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

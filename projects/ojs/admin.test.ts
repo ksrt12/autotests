@@ -38,9 +38,8 @@ interface IVolume {
     num: string;
 }
 
-test.describe.configure({ mode: "serial" });
-
 test.describe("Томы", () => {
+    test.describe.configure({ mode: "serial" });
 
     const vol: IVolume = {
         year: gen.N(4),
@@ -135,8 +134,6 @@ async function createIssue(page: Page) {
     await expect(page.locator("h1.title")).toContainText("Создать новый выпуск");
 }
 
-
-
 async function changeIssue(page: Page, year: number | string, vol: number | string, issueNum: number | string, status: issueStatus = "Опубликован") {
     await page.locator('span[role="combobox"]').first().click();
     await page.locator(`li[role="option"]:has-text("Volume ${vol} ${year}")`).click();
@@ -160,6 +157,7 @@ interface IIssue {
 }
 
 test.describe("Выпуски", () => {
+    test.describe.configure({ mode: "serial" });
 
     const issue: IIssue = {
         year: gen.N(4),
@@ -284,6 +282,7 @@ interface IAuthor {
 }
 
 test.describe("Авторы", () => {
+    test.describe.configure({ mode: "serial" });
 
     const author: IAuthor = {
         firstnameRu: gen.RU(5),
@@ -353,7 +352,7 @@ test.describe("Авторы", () => {
         await expect(page.locator(`text=${authorNew.firstnameRu} ${authorNew.lastnameRu} ${authorNew.degreeRu} ${authorNew.jobPlaceRu}`)).toBeVisible();
     });
 
-    test.skip("Поиск", async ({ page }) => {
+    test.fixme("Поиск", async ({ page }) => {
         await search(page, [authorNew.firstnameRu, authorNew.lastnameRu, authorNew.degreeRu, authorNew.jobPlaceRu]);
         await page.goBack();
     });
@@ -392,6 +391,7 @@ async function deleteArticle(page: Page, article: IArticle) {
 }
 
 test.describe.skip("Статьи", () => {
+    test.describe.configure({ mode: "serial" });
 
     const issueNum = gen.N(2);
 

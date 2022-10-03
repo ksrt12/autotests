@@ -25,7 +25,11 @@ const config: PlaywrightTestConfig = {
     forbidOnly: !!process.env.CI,
     retries: process.env.CI ? 2 : 0,
     workers: process.env.CI ? 1 : undefined,
-    reporter: [['html'], ["line"]],
+    reporter: [
+        ["html", { outputFolder: "./out" }],
+        ["json", { outputFile: "./projects/ojs/out/report.json" }],
+        ["line"]
+    ],
     globalSetup: require.resolve('./setup'),
     use: {
         actionTimeout: 0,
@@ -58,18 +62,18 @@ const config: PlaywrightTestConfig = {
         },
 
         /* Test against mobile viewports. */
-        // {
-        //   name: 'Mobile Chrome',
-        //   use: {
-        //     ...devices['Pixel 5'],
-        //   },
-        // },
-        // {
-        //   name: 'Mobile Safari',
-        //   use: {
-        //     ...devices['iPhone 12'],
-        //   },
-        // },
+        {
+            name: 'Mobile Chrome',
+            use: {
+                ...devices['Pixel 5'],
+            },
+        },
+        {
+            name: 'Mobile Safari',
+            use: {
+                ...devices['iPhone 12'],
+            },
+        },
 
         /* Test against branded browsers. */
         // {
