@@ -2,10 +2,10 @@
   "cookies": [
     {
       "name": "PHPSESSID",
-      "value": "a8e2baa2f7a068822ab7ea894566a28d",
-      "domain": "optic-journal-test.itmo.dev",
+      "value": "35d3a27d1c3dc959bc5eebcaff091a01",
+      "domain": "127.0.0.1",
       "path": "/",
-      "expires": 1664322326.567648,
+      "expires": 1664841043.645516,
       "httpOnly": true,
       "secure": false,
       "sameSite": "Lax"
